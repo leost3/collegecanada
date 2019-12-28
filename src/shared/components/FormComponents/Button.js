@@ -1,14 +1,16 @@
 import React from "react";
 import "./Button.scss";
 
-const Button = props => {
+const Button = ({ socialmedia, onClick, size, inverse, danger, children }) => {
   return (
     <button
-      onClick={props.onClick}
-      className={`button button-${props.size || "default"}  ${props.inverse &&
-        "button-inverse"} ${props.danger && "button-danger"}`}
+      onClick={onClick}
+      className={`button button-${size || "default"}  ${inverse &&
+        "button-inverse"} ${danger && "button-danger"} ${socialmedia &&
+        `button-${socialmedia}`}`}
     >
-      {props.children}
+      <span>{socialmedia}</span>
+      {children}
     </button>
   );
 };
