@@ -12,14 +12,12 @@ const LoginWindow = ({ children, closeLogin, authenticateUser }) => {
         <Button onClick={closeLogin}>Cancel</Button>
       </div>
       <div className="popover-social-media-container">
-        {/* <div className="popover-social-media-auth"> */}
         <Button onClick={authenticateUser} socialmedia="google" size="large" />
         <Button
           onClick={authenticateUser}
           socialmedia="facebook"
           size="large"
         />
-        {/* </div> */}
       </div>
     </div>
   );
