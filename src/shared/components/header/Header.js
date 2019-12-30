@@ -14,7 +14,8 @@ const Header = () => {
     setIsLoginOpen(false);
   };
 
-  const authenticateUser = () => {
+  const authenticateUser = e => {
+    e.preventDefault();
     setIsLoginOpen(false);
     console.log("login");
   };
@@ -23,7 +24,8 @@ const Header = () => {
     <div className="main-header">
       <div className="header">
         <span className="logo">logo</span>
-        <Button onClick={toggleLogin} className="login-buton" danger>
+
+        <Button onClick={toggleLogin} className="login-buton">
           Login
         </Button>
         {isLoginOpen && (
