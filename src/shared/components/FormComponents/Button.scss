@@ -14,10 +14,16 @@
         height: 35px;
     }
 
-    &-large {
+    &-large,
+    &-full {
         width: 125px;
         height: 45px;
         font-size: 18px;
+    }
+
+    &-full {
+        width: 100%;
+
     }
 
     &-danger {
