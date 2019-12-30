@@ -3,15 +3,20 @@ import "./LoginWindow.scss";
 
 import SocialmediaSigninButton from "../../FormComponents/SocialmediaSigninButton";
 import Button from "../../FormComponents/Button";
-import Input from "../../FormComponents/Input";
+import InputForm from "../../FormComponents/InputForm";
 
 const LoginWindow = ({ closeLogin, authenticateUser }) => {
   return (
     <div className="popover">
       <form onSubmit={authenticateUser}>
         <div className="popover-inputs">
-          <Input height="35" fontSize="25" />
-          <Input height="35" fontSize="25" />
+          <InputForm type="email" height="35" fontSize="25" label="email" />
+          <InputForm
+            type="password"
+            height="35"
+            fontSize="25"
+            label="password"
+          />
         </div>
         <div className="popover-buttons">
           <Button size="large" type="submit">
