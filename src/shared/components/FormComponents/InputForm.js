@@ -1,10 +1,11 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import "./InputForm.scss";
 import { validate } from "../../utils/validators";
 
 const inputReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE":
+      console.log(state);
       return {
         ...state,
         value: action.value,
@@ -20,9 +21,14 @@ const inputReducer = (state, action) => {
   }
 };
 
-const InputForm = ({ type, label, validators, errorMessage, disabled }) => {
-  console.log(validators);
-
+const InputForm = ({
+  type,
+  label,
+  validators,
+  errorMessage,
+  onInputChangeHandler,
+  name
+}) => {
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: "",
     isValid: false,
@@ -43,9 +49,17 @@ const InputForm = ({ type, label, validators, errorMessage, disabled }) => {
     });
   };
 
+  const { value, isValid } = inputState;
+
+  useEffect(() => {
+    onInputChangeHandler(name, value, isValid);
+  }, [name, value, isValid, onInputChangeHandler]);
+
   return (
     <div className="input-group">
       <input
+        type={type}
+        name={name}
         className={`form-input ${
           !inputState.isValid && inputState.isTouched
             ? "form-input--invalid"
