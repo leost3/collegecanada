@@ -17,12 +17,6 @@ const Header = () => {
     setIsLoginOpen(false);
   };
 
-  const authenticateUser = e => {
-    e.preventDefault();
-    setIsUserAthenticated(true);
-    setIsLoginOpen(false);
-  };
-
   const logout = e => {
     setIsUserAthenticated(false);
   };
@@ -41,12 +35,7 @@ const Header = () => {
           </div>
         )}
         {isLoginOpen && (
-          <LoginWindow
-            closeLogin={closeLogin}
-            authenticateUser={authenticateUser}
-          >
-            POPOVER
-          </LoginWindow>
+          <LoginWindow closeLogin={closeLogin}>POPOVER</LoginWindow>
         )}
       </div>
     </div>

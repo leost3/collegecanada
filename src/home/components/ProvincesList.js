@@ -84,8 +84,8 @@ const ProvicesList = props => {
     }
   ];
 
-  return provinces.map(province => {
-    return <ProvinceItem {...props} />;
+  return provinces.map((province, i) => {
+    return <ProvinceItem key={i} {...props} />;
   });
 };
 
