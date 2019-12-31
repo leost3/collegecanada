@@ -20,7 +20,7 @@ const inputReducer = (state, action) => {
   }
 };
 
-const InputForm = ({ type, label, validators, errorMessage }) => {
+const InputForm = ({ type, label, validators, errorMessage, disabled }) => {
   console.log(validators);
 
   const [inputState, dispatch] = useReducer(inputReducer, {

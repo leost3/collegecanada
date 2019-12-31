@@ -34,16 +34,13 @@
         background: green
     }
 
-    &-facebook {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        background: blue
+    &:disabled,
+    &[disabled] {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+
     }
 
-    &-google {
-        display: flex;
-        flex-direction: row;
-        background: #aaa
-    }
+
 }
