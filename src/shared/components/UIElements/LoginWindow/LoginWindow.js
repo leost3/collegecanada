@@ -60,7 +60,7 @@ const LoginWindow = ({ closeLogin }) => {
 
   const email = formState.inputs.email.value;
   const password = formState.inputs.password.value;
-  // const {email, password} = formState.inputs[]
+
   const authenticateUser = (e, email, password) => {
     e.preventDefault();
     closeLogin();
@@ -100,7 +100,15 @@ const LoginWindow = ({ closeLogin }) => {
           </Button>
         </div>
         <span className="register">
-          Can't sign in? forget my password or register{" "}
+          Not registered?{" "}
+          <span className="sign-up">
+            {" "}
+            <u>click here</u>
+          </span>{" "}
+          to sign up!{" "}
+        </span>
+        <span className="forgot-password">
+          <u>forgot my password</u>
         </span>
         <div className="popover-socialmedia">
           <SocialmediaSigninButton socialmedia="google" />

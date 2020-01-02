@@ -13,8 +13,30 @@
     span.register {
         display: inline-block;
         margin-top: 10px;
+
+
+        span.sign-up {
+            align-self: flex-start;
+            display: inline-block;
+            cursor: pointer;
+
+            &:hover {
+                color: darkblue;
+            }
+        }
+
+
     }
 
+    span.forgot-password {
+        display: inline-block;
+        align-self: flex-start;
+        cursor: pointer;
+
+        &:hover {
+            color: darkblue;
+        }
+    }
 
     &-buttons {
         margin-top: 20px;
