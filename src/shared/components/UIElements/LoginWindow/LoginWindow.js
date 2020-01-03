@@ -16,6 +16,7 @@ import {
 } from "../../../utils/validators";
 
 const formReducer = (state, action) => {
+  console.log(state);
   switch (action.type) {
     case "INPUT_CHANGE":
       let isFormValid = true;
@@ -46,9 +47,15 @@ const LoginWindow = ({ closeLogin }) => {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
 
   const openSignup = () => {
+    dispatch({
+      type: "OPEN_SINGUP"
+    });
     setIsSignupOpen(true);
   };
   const closeSignup = () => {
+    dispatch({
+      type: "CLOSE_SINGUP"
+    });
     setIsSignupOpen(false);
   };
   const [formState, dispatch] = useReducer(formReducer, {

@@ -3,6 +3,13 @@ import "./Dropdown.scss";
 
 import DropdownContent from "./DropdownContent";
 
+const contents = [
+  { id: 0, name: "Population" },
+  { id: 1, name: "Temperature" },
+  { id: 2, name: "Jobs" },
+  { id: 3, name: "Default" },
+  { id: 4, name: "Cities" }
+];
 const content = ["Population", "Temperature", "Jobs", "Default", "Cities"];
 
 const Dropdown = () => {
@@ -17,7 +24,7 @@ const Dropdown = () => {
   return (
     <div className="dropdown">
       <div
-        className="dropdown-selected"
+        className={`dropdown-selection dropdown-${isDropdownSelected && "active"}`}
         onClick={() => setIsDropdownSelected(prevState => !prevState)}
       >
         <span>{selectedDropdownItem}</span>
@@ -25,8 +32,9 @@ const Dropdown = () => {
       </div>
       {isDropdownSelected && (
         <DropdownContent
+          selection="one-selection"
           onClick={selectDropdownItemHandler}
-          dropdownContent={content}
+          dropdownContent={contents}
         />
       )}
     </div>

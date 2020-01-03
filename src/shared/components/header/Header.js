@@ -5,7 +5,7 @@ import LoginWindow from "../UIElements/LoginWindow/LoginWindow";
 import Button from "../FormComponents/Button";
 
 const Header = () => {
-  const [isLoginOpen, setIsLoginOpen] = useState(true);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const [isUserUthenticated, setIsUserAthenticated] = useState(false);
 
@@ -13,7 +13,8 @@ const Header = () => {
     setIsLoginOpen(prevLogin => !prevLogin);
   };
 
-  const closeLogin = () => {
+  const closeLogin = e => {
+    console.log(e);
     setIsLoginOpen(false);
   };
 
@@ -34,9 +35,7 @@ const Header = () => {
             Logout
           </div>
         )}
-        {isLoginOpen && (
-          <LoginWindow closeLogin={closeLogin}>POPOVER</LoginWindow>
-        )}
+        {isLoginOpen && <LoginWindow closeLogin={closeLogin}></LoginWindow>}
       </div>
     </div>
   );
