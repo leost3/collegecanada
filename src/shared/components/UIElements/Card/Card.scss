@@ -1,0 +1,11 @@
+@import "../../../../styles/colors.scss";
+
+.card {
+    width: 268px;
+    margin: 15px;
+    height: 190px;
+    box-shadow: $box-shadow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,6 +1,51 @@
+@import "../../styles/colors.scss";
+
 .province-card {
-    width: 268px;
-    margin: 15px;
-    height: 190px;
-    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    cursor: pointer;
+    position: relative;
+
+    .name {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+        text-align: center;
+        color: $white;
+    }
+
+    .image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-50%);
+        left: 50%;
+        width: 80%;
+        height: 100%;
+        z-index: -5;
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .capital {
+        background: red;
+        align-self: flex-end;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.2s;
+    }
+
+    &:hover>.capital {
+        opacity: 1;
+
+    }
 }
