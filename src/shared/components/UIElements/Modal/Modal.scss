@@ -1,0 +1,22 @@
+$modalzindex : 10000;
+
+
+body.modal-hood {
+    overflow: hidden;
+}
+
+.modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px;
+    height: auto;
+    background: #fff;
+    border-radius: 4px;
+    z-index: $modalzindex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}

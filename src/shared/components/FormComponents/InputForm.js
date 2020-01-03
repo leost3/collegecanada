@@ -5,7 +5,6 @@ import { validate } from "../../utils/validators";
 const inputReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE":
-      console.log(state);
       return {
         ...state,
         value: action.value,
@@ -64,6 +63,8 @@ const InputForm = ({
           !inputState.isValid && inputState.isTouched
             ? "form-input--invalid"
             : ""
+        } ${
+          inputState.isTouched && inputState.isValid ? "form-input--valid" : ""
         }`}
         onChange={changeHandler}
         onBlur={touchHandler}

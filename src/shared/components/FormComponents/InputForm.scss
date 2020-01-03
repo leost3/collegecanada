@@ -21,14 +21,18 @@
         border: 1px solid black;
         border-radius: 3px;
         border: none;
-        border-bottom: 2px solid #ccc;
+        border-bottom: 2px solid rgb(20, 20, 223);
 
         &:focus {
             outline: none;
         }
 
-        &.form-input--invalid {
+        &--invalid {
             border-bottom: 2px solid red;
+        }
+
+        &--valid {
+            border-bottom: 2px solid rgb(23, 240, 23);
         }
     }
 
