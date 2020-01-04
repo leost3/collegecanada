@@ -1,10 +1,9 @@
 import React from "react";
 import "./ProvinceItem.scss";
 
-const ProvinceItem = ({ province }) => {
-  console.log(province);
+const ProvinceItem = ({ province, id }) => {
   return (
-    <div className="province-card">
+    <div className="province-card" key={id}>
       <span className="name">{province.name}</span>
       <div className="image-container">
         <img

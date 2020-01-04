@@ -25,9 +25,10 @@
         left: 0;
         transform: translateX(-50%);
         left: 50%;
-        width: 80%;
+        width: 90%;
         height: 100%;
         z-index: -5;
+        transition: all 0.5s;
 
         & img {
             width: 100%;
@@ -45,7 +46,10 @@
     }
 
     &:hover>.capital {
-        opacity: 1;
+        opacity: 1
+    }
 
+    &:hover>.image-container {
+        width: 100%;
     }
 }
