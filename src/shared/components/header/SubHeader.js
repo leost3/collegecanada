@@ -7,10 +7,12 @@ import SearchResults from "../UIElements/SearchResults";
 
 const SubHeader = props => {
   return (
-    <div className="sub-header__components">
+    <div className="sub-header">
+    <div className="sub-header-content">
       <Dropdown />
       <Search />
       <SearchResults />
+    </div>
     </div>
   );
 };

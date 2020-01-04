@@ -1,7 +1,16 @@
-.sub-header__components {
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
-    width: 1170px;
-    display: flex;
+@import "../../../styles/colors.scss";
+
+.sub-header {
+
+    width: 100%;
+    border-top: 1px solid $light-grey-2;
+    padding: 10px 0;
+
+    &-content {
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        width: 1170px;
+        display: flex;
+    }
 }
