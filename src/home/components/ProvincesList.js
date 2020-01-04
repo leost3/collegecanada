@@ -7,86 +7,89 @@ import {
   SearchResultsContext
 } from "../../shared/context/SearchContext";
 
-const ProvicesList = ({selectProvince, isPanelToggled}) => {
+const ProvincesList = ({selectProvince, }) => {
   useEffect(() => {
     setTimeout(() => {
       retrieveProvinces([
+        // DUMMY DATA
         {
           id: 0,
           name: "Quebec",
+          title:"QC",
           cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          capital: "Quebec City",
           population: 2000000
         },
         {
           id: 1,
           name: "Ontario",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          title:"ON",
+          cities: ["Ottawa", "Toronto","Mississauga","Brampton","Hamilton"],
+          capital: "Toronto",
           population: 2000000
         },
         {
           id: 2,
           name: "Alberta",
-          cities: ["montreal", "quebec city"],
+          title:"QC",
+          cities: ["Edmonton", "Red Deer","Calgary"],
           capital: "quebec city",
           population: 2000000
         },
         {
           id: 3,
           name: "British Columbia",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          title:"BC",
+          cities: ["Victoria", "Vancouver","Kelowna"],
+          capital: "Victoria",
           population: 2000000
         },
         {
           id: 4,
           name: "Manitoba",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          title:"MB",
+          cities: ["Winnipeg", "Brandon"],
+          capital: "Winnipeg",
           population: 2000000
         },
         {
           id: 5,
           name: "New Brunswick",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          title:"QC",
+          cities: ["Fredericton", "Moncton"],
+          capital: "Fredericton",
           population: 2000000
         },
         {
           id: 8,
           name: "Newfoundland and Labrator",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          title:"QC",
+          cities: ["St. John's"],
+          capital: "St. John's",
           population: 2000000
         },
         {
           id: 9,
           name: "Nova Scotia",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          title:"QC",
+          cities: ["Halifax", "Sydney"],
+          capital: "Halifax",
           population: 2000000
         },
         {
           id: 10,
           name: "Prince Edward Island",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          title:"P.E.I",
+          cities: ["Charlottetown"],
+          capital: "Charlottetown",
           population: 2000000
         },
-
         {
           id: 11,
-          name: "Yukon",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
-          population: 2000000
-        },
-        {
-          id: 12,
-          name: "Northwest Territories",
-          cities: ["montreal", "quebec city"],
-          capital: "quebec city",
+          name: "Saskatchewan ",
+          title:"SASK",
+          cities: ["Regina", "Saskatoon"],
+          capital: "Regina",
           population: 2000000
         }
       ]);
@@ -113,7 +116,7 @@ const ProvicesList = ({selectProvince, isPanelToggled}) => {
 
   const renderProvinces = filteredProvinces.map(province => {
     return (
-      <Card>
+      <Card key={province.id}>
         <ProvinceItem
           key={province.id}
           province={province}
@@ -125,7 +128,7 @@ const ProvicesList = ({selectProvince, isPanelToggled}) => {
 
   if (filteredProvinces.length > 0) {
     return (
-      <div className={`provinces provinces-${isPanelToggled &&"shrink"}`}>
+      <div className="provinces" >
         {renderProvinces}
       </div>
     );
@@ -147,4 +150,4 @@ const ProvicesList = ({selectProvince, isPanelToggled}) => {
   );
 };
 
-export default ProvicesList;
+export default ProvincesList;

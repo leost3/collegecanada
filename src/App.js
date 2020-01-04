@@ -4,6 +4,7 @@ import "./App.css";
 import Provinces from "./home/pages/Provinces";
 import Header from "./shared/components/header/Header";
 import SubHeader from "./shared/components/header/SubHeader";
+import NavigationBar from "./shared/components/header/NavigationBar";
 
 import { SearchContext,SearchResultsContext } from "./shared/context/SearchContext";
 
@@ -35,6 +36,7 @@ function App() {
       <main>
         <Header />
         <SubHeader />
+        <NavigationBar />
         <Provinces />
       </main>
     </SearchContext.Provider>

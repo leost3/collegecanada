@@ -1,0 +1,12 @@
+@import "../../../styles/colors.scss";
+
+.links {
+    display: inline-block;
+    cursor: pointer;
+    padding: 7.5px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.5s;
+    &:hover {
+        border-bottom: 3px solid $blue;
+    }
+}

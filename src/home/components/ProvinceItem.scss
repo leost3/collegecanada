@@ -14,7 +14,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 25px;
+        font-size: 30px;
         text-align: center;
         color: $white;
         pointer-events: none;
@@ -46,10 +46,12 @@
         z-index: -5;
         
         box-shadow: $box-shadow;
+        background: rgba($white,0.8);
     }
-
+    
     .capital {
-        background: red;
+        background: rgba($white,0.8);
+        background: lightgray;
         width: 100%;
         text-align: center;
         height: 25px;
@@ -70,5 +72,12 @@
 
     &:hover>.image-container {
         width: 100%;
+    }
+
+    &:hover {
+        // border: 2px solid $blue;
+        box-shadow: 0px 5px 5px $blue;
+        box-shadow: $box-shadow;
+
     }
 }

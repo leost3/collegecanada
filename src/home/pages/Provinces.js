@@ -1,8 +1,7 @@
 import React,{useState} from "react";
 import "./Provinces.scss";
 
-import ProviceList from "../components/ProvincesList";
-import Sidepanel from "../../shared/components/UIElements/Sidepanel/Sidepanel";
+import ProvinceList from "../components/ProvincesList";
 
 const Provinces = () => {
 
@@ -21,9 +20,7 @@ const Provinces = () => {
 
   return (
       <div className="content">
-        <button onClick={untogglePanel} >panel</button>
-        <ProviceList isPanelToggled={isPanelToggled}  selectProvince={selectProvince}  />
-        <Sidepanel isPanelToggled={isPanelToggled}  />
+        <ProvinceList isPanelToggled={isPanelToggled}  selectProvince={selectProvince}  />
       </div>
   );
 };

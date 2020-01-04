@@ -4,6 +4,7 @@
     position: relative;
     padding: 10px 10px;
     width: 120px;
+    z-index: 10000;
     cursor: pointer;
 
     &-selection {
