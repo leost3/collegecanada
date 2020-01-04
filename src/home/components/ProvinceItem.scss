@@ -9,7 +9,7 @@
     cursor: pointer;
     position: relative;
 
-    .name {
+    .province-name {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -17,6 +17,7 @@
         font-size: 25px;
         text-align: center;
         color: $white;
+        pointer-events: none;
     }
 
     .image-container {

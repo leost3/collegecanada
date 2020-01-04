@@ -1,0 +1,12 @@
+.provinces {
+    position: relative;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-shrink {
+        width: 934px;
+    }
+}

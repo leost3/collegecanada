@@ -1,0 +1,15 @@
+@import "../../../../styles/colors.scss";
+
+.sidepanel {
+    width: 300px;
+    height: 100%;
+    background: $light-grey;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    transform: translateX(100%);
+
+    &-active {
+        transform: translateX(0);
+    }
+}

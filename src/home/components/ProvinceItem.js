@@ -1,10 +1,10 @@
 import React from "react";
 import "./ProvinceItem.scss";
 
-const ProvinceItem = ({ province, id }) => {
+const ProvinceItem = ({ province, id, onClick }) => {
     return (
-      <div className="province-card" key={id}>
-        <span className="name">{province.name}</span>
+      <div className="province-card" key={id} onClick={onClick}>
+        <span className="province-name">{province.name}</span>
         <div className="image-container">
           <img
             src={require(`../../images/provinces/${province.name}.jpg`)}
