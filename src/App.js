@@ -1,7 +1,10 @@
 import React, { useState, useCallback } from "react";
 import "./App.css";
+import {BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
+
 
 import Provinces from "./home/pages/Provinces";
+import Province from "./home/pages/Province";
 import Header from "./shared/components/header/Header";
 import SubHeader from "./shared/components/header/SubHeader";
 import NavigationBar from "./shared/components/header/NavigationBar";
@@ -37,7 +40,17 @@ function App() {
         <Header />
         <SubHeader />
         <NavigationBar />
-        <Provinces />
+        <Router>
+          <Switch >
+          <Route path="/" exact>
+            <Provinces />
+          </Route>
+          <Route path="/provinces/:provinceName/:id/:city-or-immigration">
+            <Province />
+          </Route>
+          <Redirect to="/" />
+          </Switch>
+        </Router>
       </main>
     </SearchContext.Provider>
     </SearchResultsContext.Provider>

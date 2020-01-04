@@ -1,13 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
-import "./ProvincesList.scss"
+import "./ProvincesList.scss";
 import ProvinceItem from "./ProvinceItem";
 import Card from "../../shared/components/UIElements/Card/Card";
+import EmptyState from "../../shared/components/Empty-state/EmptyState";
+import Loading from "../../shared/components/Loading/Loading";
+import Skeleton from "../../shared/components/Skeleton/Skeleton";
+
 import {
   SearchContext,
   SearchResultsContext
 } from "../../shared/context/SearchContext";
 
-const ProvincesList = ({selectProvince, }) => {
+const ProvincesList = ({ selectProvince }) => {
   useEffect(() => {
     setTimeout(() => {
       retrieveProvinces([
@@ -15,7 +19,7 @@ const ProvincesList = ({selectProvince, }) => {
         {
           id: 0,
           name: "Quebec",
-          title:"QC",
+          title: "QC",
           cities: ["montreal", "quebec city"],
           capital: "Quebec City",
           population: 2000000
@@ -23,31 +27,31 @@ const ProvincesList = ({selectProvince, }) => {
         {
           id: 1,
           name: "Ontario",
-          title:"ON",
-          cities: ["Ottawa", "Toronto","Mississauga","Brampton","Hamilton"],
+          title: "ON",
+          cities: ["Ottawa", "Toronto", "Mississauga", "Brampton", "Hamilton"],
           capital: "Toronto",
           population: 2000000
         },
         {
           id: 2,
           name: "Alberta",
-          title:"QC",
-          cities: ["Edmonton", "Red Deer","Calgary"],
+          title: "QC",
+          cities: ["Edmonton", "Red Deer", "Calgary"],
           capital: "quebec city",
           population: 2000000
         },
         {
           id: 3,
           name: "British Columbia",
-          title:"BC",
-          cities: ["Victoria", "Vancouver","Kelowna"],
+          title: "BC",
+          cities: ["Victoria", "Vancouver", "Kelowna"],
           capital: "Victoria",
           population: 2000000
         },
         {
           id: 4,
           name: "Manitoba",
-          title:"MB",
+          title: "MB",
           cities: ["Winnipeg", "Brandon"],
           capital: "Winnipeg",
           population: 2000000
@@ -55,39 +59,39 @@ const ProvincesList = ({selectProvince, }) => {
         {
           id: 5,
           name: "New Brunswick",
-          title:"QC",
+          title: "QC",
           cities: ["Fredericton", "Moncton"],
           capital: "Fredericton",
           population: 2000000
         },
         {
-          id: 8,
+          id: 6,
           name: "Newfoundland and Labrator",
-          title:"QC",
+          title: "QC",
           cities: ["St. John's"],
           capital: "St. John's",
           population: 2000000
         },
         {
-          id: 9,
+          id: 7,
           name: "Nova Scotia",
-          title:"QC",
+          title: "QC",
           cities: ["Halifax", "Sydney"],
           capital: "Halifax",
           population: 2000000
         },
         {
-          id: 10,
+          id: 8,
           name: "Prince Edward Island",
-          title:"P.E.I",
+          title: "P.E.I",
           cities: ["Charlottetown"],
           capital: "Charlottetown",
           population: 2000000
         },
         {
-          id: 11,
-          name: "Saskatchewan ",
-          title:"SASK",
+          id: 9,
+          name: "Saskatchewan",
+          title: "SASK",
           cities: ["Regina", "Saskatoon"],
           capital: "Regina",
           population: 2000000
@@ -124,28 +128,25 @@ const ProvincesList = ({selectProvince, }) => {
         />
       </Card>
     );
-  })
+  });
 
   if (filteredProvinces.length > 0) {
-    return (
-      <div className="provinces" >
-        {renderProvinces}
-      </div>
-    );
+    return <div className="provinces">{renderProvinces}</div>;
   }
 
   if (provinces.length === 0) {
     return (
       // Create component with spinner
-      <div className="loading">
-        <h1>Loading</h1>
+      <div className="provinces">
+        <Skeleton />
       </div>
+
     );
   }
   return (
     // Create component
     <div className="not-found">
-      <h1>Not found</h1>
+      <EmptyState />
     </div>
   );
 };
