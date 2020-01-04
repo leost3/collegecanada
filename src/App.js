@@ -5,18 +5,27 @@ import Provinces from "./home/pages/Provinces";
 import Header from "./shared/components/header/Header";
 import SubHeader from "./shared/components/header/SubHeader";
 
-import { SearchContext } from "./shared/context/SearchContext";
+import { SearchContext,SearchResultsContext } from "./shared/context/SearchContext";
 
 function App() {
   const [searchedPlace, setSearchedPlace] = useState({ searchedPlace: "" });
 
   const updateSeachedPlace = useCallback(value => {
-    console.log(value);
-    console.log(typeof value);
     setSearchedPlace({ searchedPlace:value});
   }, []);
 
+  const [searchedResults,setSearchedResults] = useState({results:0})
+
+  const updateSearchedResults= useCallback(result => {
+      setSearchedResults({results:result})
+  },[])
+
+
   return (
+    <SearchResultsContext.Provider value={{
+      searchedResults:searchedResults,
+      updateSearchedResults:updateSearchedResults
+    }}>
     <SearchContext.Provider
       value={{
         searchedPlace: searchedPlace,
@@ -29,6 +38,7 @@ function App() {
         <Provinces />
       </main>
     </SearchContext.Provider>
+    </SearchResultsContext.Provider>
   );
 }
 

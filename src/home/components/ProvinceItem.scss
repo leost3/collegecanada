@@ -4,8 +4,8 @@
     width: 100%;
     height: 100%;
     display: flex;
-    // justify-content: center;
-    // align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
     cursor: pointer;
     position: relative;
 
@@ -36,17 +36,35 @@
         }
     }
 
+    .buttons-container {
+        width: 100%;
+        height: 35px;
+        transform: translateY(25px);
+        transition: all 0.2s;
+        background: lightgray;
+        z-index: -5;
+        
+        box-shadow: $box-shadow;
+    }
+
     .capital {
         background: red;
-        align-self: flex-end;
         width: 100%;
         text-align: center;
+        height: 25px;
         opacity: 0;
         transition: all 0.2s;
+        box-shadow: $box-shadow;
+        z-index: -5;
+
     }
 
     &:hover>.capital {
         opacity: 1
+    }
+
+    &:hover > .buttons-container {
+        transform: translateY(0);
     }
 
     &:hover>.image-container {

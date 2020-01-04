@@ -2,21 +2,13 @@ import React, { useState, useContext, useEffect } from "react";
 
 import ProvinceItem from "./ProvinceItem";
 import Card from "../../shared/components/UIElements/Card/Card";
-import { SearchContext } from "../../shared/context/SearchContext";
+import { SearchContext,SearchResultsContext } from "../../shared/context/SearchContext";
 
 const ProvicesList = props => {
-  const searchContext = useContext(SearchContext);
-
-
-  const [provinces, setProvinces] = useState([])
-
-  const retrieveProvinces = provinces => {
-    setProvinces(provinces)
-  }
 
   useEffect(() => {
     setTimeout(() => {
-      setProvinces(
+      retrieveProvinces(
         [
           {
             id: 0,
@@ -99,22 +91,49 @@ const ProvicesList = props => {
         ]
       )
     }, 2000);
+    
   },[])
 
+  const searchContext = useContext(SearchContext);
 
-  const filter = searchContext.searchedPlace.searchedPlace;
+  const [provinces, setProvinces] = useState([])
 
+
+  const retrieveProvinces = provinces => {
+    setProvinces(provinces)
+  }
+
+
+  const filterText = searchContext.searchedPlace.searchedPlace;
   const filteredProvinces = provinces.filter(province =>
-    province.name.toLowerCase().includes(filter)
-  );
-
-  return filteredProvinces.map(province => {
-    return (
-      <Card>
-        <ProvinceItem key={province.id} province={province} />
-      </Card>
+    province.name.toLowerCase().includes(filterText)
     );
-  });
+    
+  if (filteredProvinces.length > 0) {
+    return filteredProvinces.map(province => {
+      return (
+        <Card>
+          <ProvinceItem key={province.id} province={province} />
+        </Card>
+      );
+    });
+  }
+
+  if (provinces.length === 0) {
+    return (
+      // Create component with spinner
+      <div className="loading">
+        <h1>Loading</h1>
+      </div>
+    )
+
+  }
+  return (
+    // Create component
+    <div className="not-found">
+      <h1>Not found</h1>
+    </div>
+  )
 };
 
 export default ProvicesList;
