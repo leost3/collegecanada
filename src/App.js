@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom
 
 
 import Provinces from "./home/pages/Provinces";
-import Province from "./home/pages/Province";
+import ProvinceInformation from "./Province/pages/ProvinceInformation";
 import Header from "./shared/components/header/Header";
 import SubHeader from "./shared/components/header/SubHeader";
 import NavigationBar from "./shared/components/header/NavigationBar";
@@ -45,8 +45,8 @@ function App() {
           <Route path="/" exact>
             <Provinces />
           </Route>
-          <Route path="/provinces/:provinceName/:id/:city-or-immigration">
-            <Province />
+          <Route path="/provinces/:provinceName/:id/">
+            <ProvinceInformation />
           </Route>
           <Redirect to="/" />
           </Switch>

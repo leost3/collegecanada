@@ -1,25 +1,25 @@
-import React, { useState, useContext, useEffect } from "react";
-import "./ProvincesList.scss";
-import ProvinceItem from "./ProvinceItem";
-import Card from "../../shared/components/UIElements/Card/Card";
-import EmptyState from "../../shared/components/Empty-state/EmptyState";
-import Skeleton from "../../shared/components/Skeleton/Skeleton";
+import React, { useState,  useEffect } from "react";
+// import SkeletonProvince from "../../shared/components/Skeleton/SkeletonProvince"
+import "./ProvinceInformationList.scss";
 
-import {
-  SearchContext,
-  SearchResultsContext
-} from "../../shared/context/SearchContext";
+import ProvinceInformatinItem from "./ProvinceInformationItem";
 
-const ProvincesList = ({ selectProvince }) => {
+const ProvinceInformationList = props => {
+  const [provinceCities, setProvinceCities] = useState([]);
+
+  const initializeProvince = cities => {
+    setProvinceCities(cities);
+  };
+
   useEffect(() => {
     setTimeout(() => {
-      retrieveProvinces([
+      const provinces = [
         // DUMMY DATA
         {
           id: 0,
           name: "Quebec",
           title: "QC",
-          cities: ["montreal", "quebec city"],
+          cities: ["Montreal", "Quebec City"],
           capital: "Quebec City",
           population: 2000000
         },
@@ -95,54 +95,28 @@ const ProvincesList = ({ selectProvince }) => {
           capital: "Regina",
           population: 2000000
         }
-      ]);
-    }, 2000);
+      ];
+  
+      const cities = provinces.filter(province => province.name === "British Columbia");
+      
+      initializeProvince(cities);
+    },1000)
+    
   }, []);
-
-  const searchContext = useContext(SearchContext);
-
-  const [provinces, setProvinces] = useState([]);
-
-  const retrieveProvinces = provinces => {
-    setProvinces(provinces);
-  };
-
-  // const selectProvince = province => {
-  //   console.log(province.target.querySelector(".province-name").textContent);
-  // };
-
-  const filterText = searchContext.searchedPlace.searchedPlace;
-
-  const filteredProvinces = provinces.filter(province =>
-    province.name.toLowerCase().includes(filterText)
-  );
-
-  const renderProvinces = filteredProvinces.map(province => {
-    return (
-        <ProvinceItem
-          key={province.id}
-          province={province}
-          onClick={selectProvince}
-        />
-    );
-  });
-
-  if (filteredProvinces.length > 0) {
-    return <div className="provinces">{renderProvinces}</div>;
+  
+  if (provinceCities.length === 0) {
+    return "<SkeletonProvince />"
   }
-
-  if (provinces.length === 0) {
-    return (
-      <div className="provinces">
-        <Skeleton />
-      </div>
-    );
-  }
+  console.log(provinceCities)
   return (
-    <div className="not-found">
-      <EmptyState />
+    <div className="information-container">
+      {provinceCities[0].cities.map((city, index) => {
+        return (
+            <ProvinceInformatinItem key={index} city={city}/>
+        );
+      })}
     </div>
   );
 };
 
-export default ProvincesList;
+export default ProvinceInformationList;

@@ -42,16 +42,19 @@
         height: 35px;
         transform: translateY(25px);
         transition: all 0.2s;
-        background: lightgray;
+        background: rgba(lightgray,0.9);
         z-index: -5;
-        
-        box-shadow: $box-shadow;
-        background: rgba($white,0.8);
+        // border-top: 1px solid grey;
+        border-bottom: 1px solid lightgray;
+        padding: -1px;
+        background: ($white);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
     }
-    
+
     .capital {
-        background: rgba($white,0.8);
-        background: lightgray;
+        background: ($white);
+        // background: lightgray;
         width: 100%;
         text-align: center;
         height: 25px;
@@ -66,8 +69,10 @@
         opacity: 1
     }
 
-    &:hover > .buttons-container {
+    &:hover>.buttons-container {
         transform: translateY(0);
+        box-shadow: $box-shadow;
+
     }
 
     &:hover>.image-container {
@@ -76,8 +81,13 @@
 
     &:hover {
         // border: 2px solid $blue;
-        box-shadow: 0px 5px 5px $blue;
-        box-shadow: $box-shadow;
+        box-shadow: 0px 1px 3px $blue;
+
+        &>.capital {
+            box-shadow: none;
+        }
+
+        // box-shadow: $box-shadow;
 
     }
 }

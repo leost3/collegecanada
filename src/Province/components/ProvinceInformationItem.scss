@@ -1,0 +1,50 @@
+@import "../../styles/colors.scss";
+
+.information-card {
+    height: 300px;
+    width: 830px;
+    margin: 15px;
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    cursor: pointer;
+    position: relative;
+
+    .information-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: $white;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+
+        &-1 {
+            font-size: 50px;
+        }
+
+        &-2 {
+            font-size: 30px;
+        }
+    }
+
+    .image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-50%);
+        left: 50%;
+        width: 100%;
+        z-index: -5;
+        height: 100%;
+        transition: all 0.5s;
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
