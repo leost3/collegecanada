@@ -121,7 +121,9 @@ const ProvincesList = ({ selectProvince }) => {
     return (
         <ProvinceItem
           key={province.id}
-          province={province}
+          id={province.id}
+          province={province.name}
+          capital ={province.capital}
           onClick={selectProvince}
         />
     );

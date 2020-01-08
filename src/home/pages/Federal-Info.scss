@@ -1,0 +1,10 @@
+
+import React from "React"
+
+const FederalInfo = props => {
+    return <div className="federal-info">
+        <h1>Federal</h1>
+    </div>
+}
+
+export default FederalInfo

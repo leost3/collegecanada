@@ -2,12 +2,11 @@ import React, { useState, useCallback } from "react";
 import "./App.css";
 import {BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
 
-
-import Provinces from "./home/pages/Provinces";
 import ProvinceInformation from "./Province/pages/ProvinceInformation";
 import Header from "./shared/components/header/Header";
 import SubHeader from "./shared/components/header/SubHeader";
 import NavigationBar from "./shared/components/header/NavigationBar";
+import HomePageContainer from "./home/pages/HomePageContainer"
 
 import { SearchContext,SearchResultsContext } from "./shared/context/SearchContext";
 
@@ -43,7 +42,7 @@ function App() {
         <Router>
           <Switch >
           <Route path="/" exact>
-            <Provinces />
+            <HomePageContainer />
           </Route>
           <Route path="/provinces/:provinceName/:id/">
             <ProvinceInformation />
