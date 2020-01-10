@@ -20,9 +20,9 @@ import {
 import { NavlinkContext } from "./shared/context/NavlinkContext";
 
 function App() {
-  const [searchedPlace, setSearchedPlace] = useState({ searchedPlace: "" });
+  const [searchedPlace, setSearchedPlace] = useState("");
   const updateSeachedPlace = useCallback(value => {
-    setSearchedPlace({ searchedPlace: value });
+    setSearchedPlace(value);
   }, []);
 
 

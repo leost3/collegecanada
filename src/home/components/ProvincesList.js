@@ -103,10 +103,10 @@ const ProvincesList = ({ selectProvince }) => {
     setProvinces(provinces);
   };
 
-  const filterText = searchContext.searchedPlace.searchedPlace;
+  const filtered = searchContext.searchedPlace;
 
   const filteredProvinces = provinces.filter(province =>
-    province.name.toLowerCase().includes(filterText)
+    province.name.toLowerCase().includes(filtered)
   );
 
   const renderProvinces = filteredProvinces.map(province => {

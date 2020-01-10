@@ -14,7 +14,7 @@ const Search = props => {
   return (
     <div className="search">
       <Input
-        width="825"
+        width="795"
         type="search"
         placeholder="Ex: Ontario"
         searchedPlaceHandler={searchedPlaceHandler}
