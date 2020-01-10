@@ -2,10 +2,11 @@
 
 .links {
     display: inline-block;
-    cursor: pointer;
     padding: 7.5px;
     border-bottom: 3px solid transparent;
     transition: all 0.5s;
+    margin-left: 10px;
+    cursor: pointer;
     &:hover {
         border-bottom: 3px solid $blue;
     }

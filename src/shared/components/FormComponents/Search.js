@@ -1,4 +1,4 @@
-import React, { useState, useContext, useCallback } from "react";
+import React, {  useContext, useCallback } from "react";
 
 import "./Search.scss";
 import Input from "./Input";
@@ -9,7 +9,7 @@ const Search = props => {
 
   const searchedPlaceHandler = useCallback(place => {
     searchContext.updateSeachedPlace(place);
-  }, []);
+  }, [searchContext]);
 
   return (
     <div className="search">
