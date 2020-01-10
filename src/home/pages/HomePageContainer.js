@@ -1,16 +1,21 @@
-import React,{useState} from 'react'
+import React,{useContext} from 'react'
 
 import Provinces from "./Provinces"
 import FederalInformation from "./FederalInformation"
+import { NavlinkContext } from '../../shared/context/NavlinkContext'
 
 const HomePageContainer = () => {
 
-  const [page, setPage] = useState("Provinces")
+
+  const navlinkContext = useContext(NavlinkContext)
+
+  console.log(navlinkContext);
+  
 
   return (
     <React.Fragment>
-      {page === "Provinces"&&<Provinces />}
-      {page === "Federal"&&<FederalInformation />}
+      {navlinkContext.content === "Provincial"&&<Provinces />}
+      {navlinkContext.content === "Federal"&&<FederalInformation />}
     </React.Fragment>
   )
 }

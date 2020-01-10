@@ -1,19 +1,35 @@
-import React from "react";
+import React,{useContext, useCallback} from "react";
 import "./Navlinks.scss";
-import Link from "./Link"
+import Link from "./Link";
+import { NavlinkContext } from "../../context/NavlinkContext";
 
 const Navlinks = () => {
   const links = [
-    { id: 0, path: "provinces" },
-    { id: 1, path: "cities" },
-    { id: 3, path: "colleges" }
+    { id: 0, path: "Provincial" },
+    { id: 1, path: "Federal" },
+    { id: 3, path: "Study in Canada" }
   ];
 
-  return <div className="nav-links">
+
+  const navlinkContext = useContext(NavlinkContext)
+
+  const updateDisplayedContent = useCallback(content => navlinkContext.updateDisplayContent(content),[])
+
+
+  return (
+    <div className="nav-links">
       {links.map(link => {
-          return <Link key={link.id} id={link.id} path={link.path}/>
+        return (
+          <Link
+            key={link.id}
+            id={link.id}
+            path={link.path}
+            onClick={updateDisplayedContent}
+          />
+        );
       })}
-  </div>;
+    </div>
+  );
 };
 
 export default Navlinks;
