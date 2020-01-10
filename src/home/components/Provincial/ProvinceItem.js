@@ -1,10 +1,9 @@
 import React from "react";
 import "./ProvinceItem.scss";
-import Card from "../../shared/components/UIElements/Card/Card";
+import Card from "../../../shared/components/UIElements/Card/Card";
 import { withRouter } from "react-router-dom";
 
 const ProvinceItem = ({ province, capital, id, history }) => {
-  
   return (
     <Card>
       <div
@@ -14,7 +13,7 @@ const ProvinceItem = ({ province, capital, id, history }) => {
         <span className="province-name">{province}</span>
         <div className="image-container">
           <img
-            src={require(`../../images/provinces/${province}.jpg`)}
+            src={require(`../../../images/provinces/${province}.jpg`)}
             alt={`${province}`}
           />
         </div>

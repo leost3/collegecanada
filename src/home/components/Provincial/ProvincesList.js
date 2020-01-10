@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./ProvincesList.scss";
-import ProvinceItem from "./ProvinceItem";
-import EmptyState from "../../shared/components/Empty-state/EmptyState";
-import Skeleton from "../../shared/components/Skeleton/Skeleton";
+import ProvinceItem from "../Provincial/ProvinceItem";
+import EmptyState from "../../../shared/components/Empty-state/EmptyState";
+import Skeleton from "../../../shared/components/Skeleton/Skeleton";
 
-import { SearchContext } from "../../shared/context/SearchContext";
+import { SearchContext } from "../../../shared/context/SearchContext";
 
 const ProvincesList = ({ selectProvince }) => {
   useEffect(() => {

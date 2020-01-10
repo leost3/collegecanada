@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 
-import Provinces from "./Provinces"
+import Provinces from "../components/Provincial/Provinces"
 import FederalInformation from "./FederalInformation"
 import { NavlinkContext } from '../../shared/context/NavlinkContext'
 
@@ -8,9 +8,6 @@ const HomePageContainer = () => {
 
 
   const navlinkContext = useContext(NavlinkContext)
-
-  console.log(navlinkContext);
-  
 
   return (
     <React.Fragment>

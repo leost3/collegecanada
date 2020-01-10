@@ -7,7 +7,6 @@ const SearchResults = props => {
 
   let term;
 
-  console.log(content);
   if (content.content === "Provincial") {
     term = "Provinces";
   } else if (content.content === "Study in Canada") {
