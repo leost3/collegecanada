@@ -1,14 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./ProvincesList.scss";
 import ProvinceItem from "./ProvinceItem";
-import Card from "../../shared/components/UIElements/Card/Card";
 import EmptyState from "../../shared/components/Empty-state/EmptyState";
 import Skeleton from "../../shared/components/Skeleton/Skeleton";
 
-import {
-  SearchContext,
-  SearchResultsContext
-} from "../../shared/context/SearchContext";
+import { SearchContext } from "../../shared/context/SearchContext";
 
 const ProvincesList = ({ selectProvince }) => {
   useEffect(() => {
@@ -107,10 +103,6 @@ const ProvincesList = ({ selectProvince }) => {
     setProvinces(provinces);
   };
 
-  // const selectProvince = province => {
-  //   console.log(province.target.querySelector(".province-name").textContent);
-  // };
-
   const filterText = searchContext.searchedPlace.searchedPlace;
 
   const filteredProvinces = provinces.filter(province =>
@@ -119,13 +111,13 @@ const ProvincesList = ({ selectProvince }) => {
 
   const renderProvinces = filteredProvinces.map(province => {
     return (
-        <ProvinceItem
-          key={province.id}
-          id={province.id}
-          province={province.name}
-          capital ={province.capital}
-          onClick={selectProvince}
-        />
+      <ProvinceItem
+        key={province.id}
+        id={province.id}
+        province={province.name}
+        capital={province.capital}
+        onClick={selectProvince}
+      />
     );
   });
 
