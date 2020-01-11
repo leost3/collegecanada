@@ -15,6 +15,8 @@ const Navlinks = () => {
 
   const updateDisplayedContent = useCallback(content => navlinkContext.updateDisplayContent(content),[])
 
+  const activeLink = navlinkContext.content
+  console.log(navlinkContext.content)
 
   return (
     <div className="nav-links">
@@ -24,6 +26,7 @@ const Navlinks = () => {
             key={link.id}
             id={link.id}
             path={link.path}
+            activeLink={activeLink}
             onClick={updateDisplayedContent}
           />
         );

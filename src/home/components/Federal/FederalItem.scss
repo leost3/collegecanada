@@ -1,0 +1,20 @@
+@import "../../../styles/colors.scss";
+
+.federal-item {
+    width: 300px;
+    height: 300px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    box-shadow: $box-shadow;
+    text-align: center;
+    cursor: pointer;
+
+
+    &:hover {
+        flex: 5;
+        background: orange;
+    }
+}

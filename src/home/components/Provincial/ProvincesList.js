@@ -121,17 +121,24 @@ const ProvincesList = ({ selectProvince }) => {
     );
   });
 
-  if (filteredProvinces.length > 0) {
+
+  const hasProvinces = filteredProvinces.length > 0;
+
+  if (hasProvinces) {
     return <div className="provinces">{renderProvinces}</div>;
   }
 
-  if (provinces.length === 0) {
+
+  const contentHasNotRendered = provinces.length === 0
+
+  if (contentHasNotRendered) {
     return (
       <div className="provinces">
         <Skeleton />
       </div>
     );
   }
+
   return (
     <div className="not-found">
       <EmptyState />

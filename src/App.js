@@ -10,7 +10,7 @@ import {
 import ProvinceInformation from "./Province/pages/ProvinceInformation";
 import Header from "./shared/components/header/Header";
 import SubHeader from "./shared/components/header/SubHeader";
-import NavigationBar from "./shared/components/header/NavigationBar";
+import NavigationBar from "./home/components/Navigation/NavigationBar";
 import HomePageContainer from "./home/pages/HomePageContainer";
 
 import {
@@ -55,7 +55,6 @@ function App() {
           <main>
             <Header />
             <SubHeader />
-            <NavigationBar />
             <Router>
               <Switch>
                 <Route path="/" exact>

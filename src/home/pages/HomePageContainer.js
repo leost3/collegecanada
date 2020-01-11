@@ -1,20 +1,23 @@
-import React,{useContext} from 'react'
+import React, { useContext } from "react";
 
-import Provinces from "../components/Provincial/Provinces"
-import FederalInformation from "./FederalInformation"
-import { NavlinkContext } from '../../shared/context/NavlinkContext'
+import NavigationBar from "../components/Navigation/NavigationBar";
+import Provinces from "../components/Provincial/Provinces";
+import FederalInformation from "./FederalInformation";
+import Study from "../components/Study/Study"
+import { NavlinkContext } from "../../shared/context/NavlinkContext";
 
 const HomePageContainer = () => {
-
-
-  const navlinkContext = useContext(NavlinkContext)
+  const navlinkContext = useContext(NavlinkContext);
 
   return (
     <React.Fragment>
-      {navlinkContext.content === "Provincial"&&<Provinces />}
-      {navlinkContext.content === "Federal"&&<FederalInformation />}
+      <NavigationBar />
+      
+      {navlinkContext.content === "Study in Canada" && <Study />}
+      {navlinkContext.content === "Provincial" && <Provinces />}
+      {navlinkContext.content === "Federal" && <FederalInformation />}
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default HomePageContainer
+export default HomePageContainer;
