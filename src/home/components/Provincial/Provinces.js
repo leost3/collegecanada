@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Panel from "./Panel"
 import "./Provinces.scss";
 
 import ProvinceList from "./ProvincesList";
@@ -6,13 +7,12 @@ import ProvinceList from "./ProvincesList";
 const Provinces = () => {
   const [isPanelToggled, setisPanelToggled] = useState(false);
 
-  const [selectedProvince, setSelectedProvince] = useState(null);
 
-  const selectProvince = province => {
+  const isProvinceSelected = () => {
     setisPanelToggled(true);
   };
 
-  const untogglePanel = () => {
+  const togglePanel = () => {
     setisPanelToggled(prevState => !prevState);
   };
 
@@ -20,8 +20,9 @@ const Provinces = () => {
     <div className="content">
       <ProvinceList
         isPanelToggled={isPanelToggled}
-        selectProvince={selectProvince}
+        isProvinceSelected={isProvinceSelected}
       />
+      <Panel isPanelToggled={isPanelToggled} togglePanel={togglePanel}/>
     </div>
   );
 };

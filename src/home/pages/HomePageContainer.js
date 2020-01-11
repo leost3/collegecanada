@@ -12,7 +12,6 @@ const HomePageContainer = () => {
   return (
     <React.Fragment>
       <NavigationBar />
-      
       {navlinkContext.content === "Study in Canada" && <Study />}
       {navlinkContext.content === "Provincial" && <Provinces />}
       {navlinkContext.content === "Federal" && <FederalInformation />}

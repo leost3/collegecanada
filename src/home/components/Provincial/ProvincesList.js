@@ -6,7 +6,7 @@ import Skeleton from "../../../shared/components/Skeleton/Skeleton";
 
 import { SearchContext } from "../../../shared/context/SearchContext";
 
-const ProvincesList = ({ selectProvince }) => {
+const ProvincesList = ({ isProvinceSelected,isPanelToggled }) => {
   useEffect(() => {
     setTimeout(() => {
       retrieveProvinces([
@@ -107,6 +107,7 @@ const ProvincesList = ({ selectProvince }) => {
 
   const updateSelectedProvince = province => {
     setSelectedProvince(province);
+    isProvinceSelected()
   };
 
   const filtered = searchContext.searchedPlace;
@@ -115,23 +116,30 @@ const ProvincesList = ({ selectProvince }) => {
     province.name.toLowerCase().includes(filtered)
   );
 
+
+  const hasProvinceBeenSelected = selectedProvince.length > 0
+
   const renderProvinces = filteredProvinces.map(province => {
     return (
-        <ProvinceItem
-          key={province.id}
-          id={province.id}
-          province={province.name}
-          capital={province.capital}
-          updateSelectedProvince={updateSelectedProvince}
-          selectedProvince={selectedProvince}
-        />
+      <ProvinceItem
+        key={province.id}
+        id={province.id}
+        province={province.name}
+        capital={province.capital}
+        updateSelectedProvince={updateSelectedProvince}
+        selectedProvince={selectedProvince}
+      />
     );
   });
 
   const hasProvinces = filteredProvinces.length > 0;
 
   if (hasProvinces) {
-    return <div className="provinces">{renderProvinces}</div>;
+    return (
+      <div className="provinces">
+        <div className={`provinces-content ${hasProvinceBeenSelected && isPanelToggled ? "shrink" : ""}`}>{renderProvinces}</div>
+      </div>
+    )
   }
 
   const contentHasNotRendered = provinces.length === 0;

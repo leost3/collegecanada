@@ -1,0 +1,15 @@
+
+.panel-content {
+    width: 435px;
+    height: 100%;
+    background-color: grey;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(840px);
+    transition: all 0.3s;
+    
+    &-active {
+        transform: translateX(0);
+    }
+}
