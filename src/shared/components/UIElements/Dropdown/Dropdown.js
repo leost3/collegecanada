@@ -13,28 +13,31 @@ const contents = [
 const content = ["Population", "Temperature", "Jobs", "Default", "Cities"];
 
 const Dropdown = () => {
-  const [isDropdownSelected, setIsDropdownSelected] = useState(false);
+  const [isDropdownOpen, setisDropdownOpen] = useState(false);
   const [selectedDropdownItem, setSelectedDropdownItem] = useState(content[0]);
+
+  const hideDropdown = () => setisDropdownOpen(false)
 
   const selectDropdownItemHandler = event => {
     setSelectedDropdownItem(event.target.innerHTML);
-    setIsDropdownSelected(false);
+    hideDropdown()
   };
+
 
   return (
     <div className="dropdown">
       <div
-        className={`dropdown-selection dropdown-${isDropdownSelected && "active"}`}
-        onClick={() => setIsDropdownSelected(prevState => !prevState)}
+        className={`dropdown-selection dropdown-${isDropdownOpen && "active"}`}
+        onClick={() => setisDropdownOpen(prevState => !prevState)}
       >
         <span>{selectedDropdownItem}</span>
-        <span className="caret">{isDropdownSelected ? "Up" : "Down"}</span>
       </div>
-      {isDropdownSelected && (
+      {isDropdownOpen && (
         <DropdownContent
           selection="one-selection"
           onClick={selectDropdownItemHandler}
           dropdownContent={contents}
+          hideDropdown={hideDropdown}
         />
       )}
     </div>

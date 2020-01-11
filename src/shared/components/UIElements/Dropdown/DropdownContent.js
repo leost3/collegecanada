@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import DropdownItem from "./DropdownItem";
 import "./DropdownContent.scss";
 
-const DropdownContent = ({ dropdownContent, onClick }) => {
-  console.log(dropdownContent);
+import {useHandleClickOutside} from "../../../hooks/ClickOutsideHook"
+
+const DropdownContent = ({
+  hideDropdown,
+  dropdownContent,
+  onClick
+}) => {
+  const dropdownMenuRef = useRef(null);
+
 
   const renderDropdownList = dropdownContent.map((item, index) => (
     <DropdownItem item={item} key={index} selectDropdownItemHandler={onClick} />
   ));
-
-  console.log(renderDropdownList);
+  useHandleClickOutside(dropdownMenuRef,hideDropdown)
   return (
-    <div className="dropdown-content">
+    <div ref={dropdownMenuRef} className="dropdown-content">
       <ul className="dropdown-list">{renderDropdownList}</ul>
     </div>
   );
