@@ -1,4 +1,4 @@
-import React, { useState,  useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import SkeletonProvince from "../../shared/components/Skeleton/SkeletonProvince"
 import "./ProvinceInformationList.scss";
 import { useParams } from "react-router-dom";
@@ -7,9 +7,8 @@ import ProvinceInformatinItem from "./ProvinceInformationItem";
 
 const ProvinceInformationList = props => {
   const [provinceCities, setProvinceCities] = useState([]);
-  
-  
-  const {provinceName} = useParams();
+
+  const { provinceName } = useParams();
 
   const initializeProvince = cities => {
     setProvinceCities(cities);
@@ -101,24 +100,20 @@ const ProvinceInformationList = props => {
         }
       ];
 
-      
-  
-      const cities = provinces.filter(province => province.name === provinceName);
+      const cities = provinces.filter(
+        province => province.name === provinceName
+      );
       initializeProvince(cities);
-    },1000)
-    
+    }, 1000);
   }, []);
-  
+
   if (provinceCities.length === 0) {
-    return "<SkeletonProvince />"
+    return "<SkeletonProvince />";
   }
   return (
     <div className="information-container">
       {provinceCities[0].cities.map((city, index) => {
-        console.log(city)
-        return (
-            <ProvinceInformatinItem key={index} city={city}/>
-        );
+        return <ProvinceInformatinItem key={index} city={city} />;
       })}
     </div>
   );

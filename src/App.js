@@ -53,9 +53,9 @@ function App() {
           }}
         >
           <main>
+            <Router>
             <Header />
             <SubHeader />
-            <Router>
               <Switch>
                 <Route path="/" exact>
                   <HomePageContainer />

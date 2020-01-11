@@ -16,7 +16,6 @@ const Navlinks = () => {
   const updateDisplayedContent = useCallback(content => navlinkContext.updateDisplayContent(content),[])
 
   const activeLink = navlinkContext.content
-  console.log(navlinkContext.content)
 
   return (
     <div className="nav-links">

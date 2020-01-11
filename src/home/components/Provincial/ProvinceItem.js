@@ -3,12 +3,24 @@ import "./ProvinceItem.scss";
 import Card from "../../../shared/components/UIElements/Card/Card";
 import { withRouter } from "react-router-dom";
 
-const ProvinceItem = ({ province, capital, id, history }) => {
+const ProvinceItem = ({ province, capital, id, history,selectedProvince,updateSelectedProvince }) => {
+
+  const isProvinceSelected = selectedProvince === province
+  
+  const selectProvince = () => {
+    if (isProvinceSelected) {
+      history.push(`/provinces/${province}/${id}`)
+    }else {
+      updateSelectedProvince(province)
+    }
+  }
+
+
   return (
     <Card>
       <div
-        className="province-card"
-        onClick={() => history.push(`/provinces/${province}/${id}`)}
+        className={`province-card province-card-${isProvinceSelected && "active"}`}
+        onClick={selectProvince}
       >
         <span className="province-name">{province}</span>
         <div className="image-container">

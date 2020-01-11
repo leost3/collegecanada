@@ -103,6 +103,12 @@ const ProvincesList = ({ selectProvince }) => {
     setProvinces(provinces);
   };
 
+  const [selectedProvince, setSelectedProvince] = useState("");
+
+  const updateSelectedProvince = province => {
+    setSelectedProvince(province);
+  };
+
   const filtered = searchContext.searchedPlace;
 
   const filteredProvinces = provinces.filter(province =>
@@ -111,16 +117,16 @@ const ProvincesList = ({ selectProvince }) => {
 
   const renderProvinces = filteredProvinces.map(province => {
     return (
-      <ProvinceItem
-        key={province.id}
-        id={province.id}
-        province={province.name}
-        capital={province.capital}
-        onClick={selectProvince}
-      />
+        <ProvinceItem
+          key={province.id}
+          id={province.id}
+          province={province.name}
+          capital={province.capital}
+          updateSelectedProvince={updateSelectedProvince}
+          selectedProvince={selectedProvince}
+        />
     );
   });
-
 
   const hasProvinces = filteredProvinces.length > 0;
 
@@ -128,8 +134,7 @@ const ProvincesList = ({ selectProvince }) => {
     return <div className="provinces">{renderProvinces}</div>;
   }
 
-
-  const contentHasNotRendered = provinces.length === 0
+  const contentHasNotRendered = provinces.length === 0;
 
   if (contentHasNotRendered) {
     return (

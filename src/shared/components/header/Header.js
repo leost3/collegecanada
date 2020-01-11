@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 import LoginWindow from "../UIElements/LoginWindow/LoginWindow";
@@ -14,7 +15,6 @@ const Header = () => {
   };
 
   const closeLogin = e => {
-    console.log(e);
     setIsLoginOpen(false);
   };
 
@@ -25,7 +25,9 @@ const Header = () => {
   return (
     <div className="main-header">
       <div className="header">
-        <span className="logo">logo</span>
+          <Link to="/">
+            <span className="logo">logo</span>
+          </Link>
         {!isUserUthenticated ? (
           <Button onClick={toggleLogin} className="login-buton">
             Login
