@@ -1,14 +1,18 @@
 @import "../../../../styles/colors.scss";
 
-li {
+li.dropdown-item {
     margin: 0;
     list-style: none;
     padding: 10px;
     transition: all 0.2s;
+    display: flex;
+    justify-content: space-between;
+
     &:hover {
         background: $light-grey;
         background: rgba(238, 65, 65, 0.801);
         background: linear-gradient(#e52d27,#BD3F32);
         color: $white;
     }
+
 }

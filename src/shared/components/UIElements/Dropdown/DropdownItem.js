@@ -4,7 +4,8 @@ import "./Dropdownitem.scss";
 const DropdownItem = ({ item, selectDropdownItemHandler }) => {
   return (
     <li onClick={selectDropdownItemHandler} className="dropdown-item">
-      {item.name}
+      <span className="span-one">{item.name}</span>
+      <span className="span-two">icon</span>
     </li>
   );
 };

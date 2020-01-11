@@ -4,8 +4,6 @@ import "./ProvinceInformationItem.scss";
 const ProvinceInformationItem = props => {
   const [displayedCityInformation, setDisplayedCityInformation] = useState([]);
 
-
-
   const updateDisplayedCity = city => {
     setDisplayedCityInformation(city);
   };
@@ -20,7 +18,7 @@ const ProvinceInformationItem = props => {
   return (
     <div className="information-card">
       <div className="information-title">
-        <span className="information-title-1">{props.city}</span>
+        <span className="information-title-1">{displayedCityInformation}</span>
         <span className="information-title-2">[[[[BC]]]]</span>
       </div>
       <div className="image-container">
