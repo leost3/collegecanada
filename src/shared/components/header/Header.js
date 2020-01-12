@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
+import Backdrop from "../UIElements/backdrop/Backdrop"
 
-import LoginWindow from "../UIElements/LoginWindow/LoginWindow";
+// import LoginWindow from "../UIElements/LoginWindow/LoginWindow";
+import SinginSingup from "../../../SinginSingup/Page/SinginSingup"
 import Button from "../FormComponents/Button";
 
 const Header = () => {
@@ -17,6 +19,8 @@ const Header = () => {
   const closeLogin = e => {
     setIsLoginOpen(false);
   };
+
+  const login = () => setIsUserAthenticated(true)
 
   const logout = e => {
     setIsUserAthenticated(false);
@@ -37,7 +41,9 @@ const Header = () => {
             Logout
           </div>
         )}
-        {isLoginOpen && <LoginWindow closeLogin={closeLogin}></LoginWindow>}
+        {isLoginOpen &&<Backdrop />}
+        {isLoginOpen &&<SinginSingup closeLogin={closeLogin} login={login} />}
+        {/* {isLoginOpen && <SinginSingup closeLogin={closeLogin}></SinginSingup>} */}
       </div>
     </div>
   );

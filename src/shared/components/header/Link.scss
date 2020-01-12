@@ -8,10 +8,10 @@
     margin-left: 10px;
     cursor: pointer;
     &:hover {
-        border-bottom: 3px solid $blue;
+        border-bottom: 3px solid #BD3F32;
     }
 
     &.active {
-        border-bottom: 3px solid $blue;
+        border-bottom: 3px solid #BD3F32;
     }
 }

@@ -10,9 +10,16 @@ const Button = ({
   children,
   disabled
 }) => {
+
+
+  const onClickHandler = e => {
+    e.preventDefault();
+    onClick()
+  }
+
   return (
     <button
-      onClick={onClick}
+      onClick={onClickHandler}
       disabled={disabled}
       className={`button button-${size || "default"}  ${inverse &&
         "button-inverse"} ${danger && "button-danger"} ${socialmedia &&
