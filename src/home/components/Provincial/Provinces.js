@@ -6,10 +6,11 @@ import ProvinceList from "./ProvincesList";
 
 const Provinces = () => {
   const [isPanelToggled, setisPanelToggled] = useState(false);
+  const [selectedProvince, setSelectedProvince] = useState("")
 
-
-  const isProvinceSelected = () => {
+  const isProvinceSelected = (province) => {
     setisPanelToggled(true);
+    setSelectedProvince(province)
   };
 
   const togglePanel = () => {
@@ -22,7 +23,7 @@ const Provinces = () => {
         isPanelToggled={isPanelToggled}
         isProvinceSelected={isProvinceSelected}
       />
-      <Panel isPanelToggled={isPanelToggled} togglePanel={togglePanel}/>
+      <Panel isPanelToggled={isPanelToggled} togglePanel={togglePanel} selectedProvince={selectedProvince}/>
     </div>
   );
 };

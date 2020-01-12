@@ -1,0 +1,14 @@
+@import "../../../styles/colors.scss";
+
+.panel-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $light-grey-2;
+    font-size: 25px;
+    padding: 5px;
+    &-title {
+        margin-left: 10px;
+    }
+}

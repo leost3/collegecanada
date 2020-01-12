@@ -16,12 +16,25 @@
         border: thin solid #888;
         box-shadow: 1px 1px 1px grey;
         white-space: nowrap;
-
+        transition: all 0.5s;
 
         &:hover {
             cursor: pointer;
-            background: $light-grey-1;
+            
         }
+        &-facebook {
+            &:hover {
+                background: $blue;
+                color: $white;
+            }
+        }
+        &-google {
+            &:hover {
+                background: $red;
+                color: $white;
+            }
+        }
+       
 
         span.icon-google {
             background: url('https://img.etimg.com/thumb/msid-68333505,width-643,imgsize-204154,resizemode-4/googlechrome.jpg') transparent 5px 50% no-repeat;

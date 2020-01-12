@@ -6,7 +6,9 @@
     width: 120px;
     z-index: 10000;
     cursor: pointer;
-
+    &:hover {
+        background:$light-grey ;
+    }
     &-selection {
         position: absolute;
         top: 0;

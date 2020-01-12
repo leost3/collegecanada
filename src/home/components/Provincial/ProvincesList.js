@@ -107,7 +107,7 @@ const ProvincesList = ({ isProvinceSelected,isPanelToggled }) => {
 
   const updateSelectedProvince = province => {
     setSelectedProvince(province);
-    isProvinceSelected()
+    isProvinceSelected(province)
   };
 
   const filtered = searchContext.searchedPlace;

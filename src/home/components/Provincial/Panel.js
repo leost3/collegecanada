@@ -1,9 +1,11 @@
 import React from "react";
 import "./Panel.scss";
 
-const Panel = ({isPanelToggled,togglePanel}) => {
+import PanelHeader from "./Panel-header";
+
+const Panel = ({isPanelToggled, togglePanel, selectedProvince}) => {
   return <div className={`panel-content panel-content-${isPanelToggled && "active"}`}>
-      <button onClick={togglePanel} >X</button>
+      <PanelHeader togglePanel={togglePanel}>{selectedProvince}</PanelHeader>
   </div>;
 };
 

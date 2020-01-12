@@ -13,7 +13,7 @@ const SocialmediaSigninButton = ({ socialmedia, onClick }) => {
 
   return (
     <div className="gSignInWrapper" onClick={onClickHandler}>
-      <div className="socialmedia-button customGPlusSignIn ">
+      <div className={`socialmedia-button socialmedia-button-${socialmedia} customGPlusSignIn `}>
         <span className={`icon-${socialmedia}`}></span>
         <span className="buttonText">{upperSocialmedia}</span>
       </div>
