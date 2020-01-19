@@ -1,8 +1,6 @@
 import React from "react";
 import "./Signupform.scss";
 
-// class SignupForm extends React.Component {
-//   static InputForm = InputForm;
 const SignupForm = props => {
   return (
     <div className="sigup-container">

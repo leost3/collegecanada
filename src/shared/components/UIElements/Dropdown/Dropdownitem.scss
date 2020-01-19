@@ -9,7 +9,7 @@ li.dropdown-item {
     justify-content: space-between;
 
     &:hover {
-        background: $light-grey;
+        background: rgb(250, 250, 250);
         background: linear-gradient(#e52d27,#BD3F32);
         color: $white;
     }

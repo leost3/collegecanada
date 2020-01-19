@@ -12,17 +12,16 @@ const contents = [
 ];
 const content = ["Population", "Temperature", "Jobs", "Default", "Cities"];
 
-const Dropdown = () => {
+const Dropdown = ({position}) => {
   const [isDropdownOpen, setisDropdownOpen] = useState(false);
   const [selectedDropdownItem, setSelectedDropdownItem] = useState(content[0]);
 
-  const hideDropdown = () => setisDropdownOpen(false)
+  const hideDropdown = () => setisDropdownOpen(false);
 
   const selectDropdownItemHandler = event => {
-    setSelectedDropdownItem(event.target.innerHTML);
-    hideDropdown()
+    setSelectedDropdownItem(event.target.childNodes[0].innerHTML);
+    hideDropdown();
   };
-
 
   return (
     <div className="dropdown">
@@ -38,6 +37,7 @@ const Dropdown = () => {
           onClick={selectDropdownItemHandler}
           dropdownContent={contents}
           hideDropdown={hideDropdown}
+          position={position}
         />
       )}
     </div>

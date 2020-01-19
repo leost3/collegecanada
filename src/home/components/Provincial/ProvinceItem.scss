@@ -8,6 +8,7 @@
     justify-content: flex-end;
     cursor: pointer;
     position: relative;
+    overflow: hidden;
     
     &-active {
         box-shadow: $box-shadow-red;
@@ -27,7 +28,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        transform: translateX(-50%);
+        transform: translateX(-49.8%);
         left: 50%;
         width: 100%;
         height: 100%;
@@ -47,16 +48,12 @@
         transition: all 0.2s;
         background: rgba(lightgray,0.9);
         z-index: -5;
-        // border-top: 1px solid grey;
-        border-bottom: 1px solid lightgray;
-        padding: -1px;
         background: ($white);
-        background: lightgray;
     }
 
     .capital {
         background: ($white);
-        // background: lightgray;
+        background: $linear-gradient-red;
         width: 100%;
         text-align: center;
         height: 25px;

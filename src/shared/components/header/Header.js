@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
-import Backdrop from "../UIElements/backdrop/Backdrop"
+import Backdrop from "../UIElements/backdrop/Backdrop";
 
 // import LoginWindow from "../UIElements/LoginWindow/LoginWindow";
-import SinginSingup from "../../../SinginSingup/Page/SinginSingup"
+import SinginSingup from "../../../SinginSingup/Page/SinginSingup";
 import Button from "../FormComponents/Button";
 
 const Header = () => {
@@ -20,7 +20,7 @@ const Header = () => {
     setIsLoginOpen(false);
   };
 
-  const login = () => setIsUserAthenticated(true)
+  const login = () => setIsUserAthenticated(true);
 
   const logout = e => {
     setIsUserAthenticated(false);
@@ -29,9 +29,9 @@ const Header = () => {
   return (
     <div className="main-header">
       <div className="header">
-          <Link to="/">
-            <span className="logo">logo</span>
-          </Link>
+        <Link to="/">
+          <span className="logo">logo</span>
+        </Link>
         {!isUserUthenticated ? (
           <Button onClick={toggleLogin} className="login-buton">
             Login
@@ -41,8 +41,8 @@ const Header = () => {
             Logout
           </div>
         )}
-        {isLoginOpen &&<Backdrop />}
-        {isLoginOpen &&<SinginSingup closeLogin={closeLogin} login={login} />}
+        {isLoginOpen && <Backdrop />}
+        {isLoginOpen && <SinginSingup closeLogin={closeLogin} login={login} />}
         {/* {isLoginOpen && <SinginSingup closeLogin={closeLogin}></SinginSingup>} */}
       </div>
     </div>

@@ -2,18 +2,27 @@
 
 .signin-signup {
     position: absolute;
-    width: 400px;
     background-color: white;
     display: flex;
-    flex-direction: column;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
     box-shadow: $box-shadow-default;
+    width: 900px;
+
+    .side-picture {
+        flex: 1;
+
+        & img {
+            height: 100%;
+            width: 100%;
+        }
+    }
 
     .form-container {
-        padding: 25px;
+        padding: 10px 6px;
+        flex: 0.8;
 
         .signin-signup-form {
             display: flex;
@@ -35,6 +44,6 @@
             }
         }
 
-        
+
     }
 }

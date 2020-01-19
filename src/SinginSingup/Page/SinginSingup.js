@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./SinginSingup.scss";
 import Signin from "../Components/Signin";
@@ -7,43 +7,53 @@ import Button from "../../shared/components/FormComponents/Button";
 import SocialmediaSigninButton from "../../shared/components/FormComponents/SocialmediaSigninButton";
 import TabsContainer from "../Components/TabsContainer";
 
-const SigninSignup = ({closeLogin,login}) => {
-
-
-  const [useSelectedTab, setUseSelectedTab] = useState("signin")
+const SigninSignup = ({ closeLogin, login }) => {
+  const [useSelectedTab, setUseSelectedTab] = useState("signin");
   // const [useSelectedTab, setUseSelectedTab] = useState("signup")
 
-  const updatedSelectedTab = tab => setUseSelectedTab(tab)
+  const updatedSelectedTab = tab => setUseSelectedTab(tab);
   const signinTabSelected = useSelectedTab === "signin";
-
 
   const onSigninHandler = () => {
     if (signinTabSelected) {
-      login()
-      closeLogin()
-    }else {
-      alert("signup")
+      login();
+      closeLogin();
+    } else {
+      alert("signup");
       // closeLogin()
-
     }
-  }
+  };
 
   const content = (
     <div className="signin-signup">
-      <TabsContainer updatedSelectedTab={updatedSelectedTab} signinTabSelected={signinTabSelected} />
       <div className="form-container">
+        <TabsContainer
+          updatedSelectedTab={updatedSelectedTab}
+          signinTabSelected={signinTabSelected}
+        />
         <form className="signin-signup-form">
-          {signinTabSelected&&<Signin />}
-          {!signinTabSelected&&<Signup />}
+          {signinTabSelected && <Signin />}
+          {!signinTabSelected && <Signup />}
           <div className="buttons-container">
             <div className="buttons-container-signin-close">
-              <Button onClick={onSigninHandler} size="full">{signinTabSelected ? "Sign In" : "Sign Up"}</Button>
-              <Button onClick={closeLogin} size="full" danger>Close</Button>
+              <Button onClick={onSigninHandler} size="full">
+                {signinTabSelected ? "Sign In" : "Sign Up"}
+              </Button>
+              <Button onClick={closeLogin} size="full" danger>
+                Close
+              </Button>
             </div>
-            {signinTabSelected&&<SocialmediaSigninButton socialmedia="google" />}
-            {signinTabSelected&&<SocialmediaSigninButton socialmedia="facebook" />}
+            {signinTabSelected && (
+              <SocialmediaSigninButton socialmedia="google" />
+            )}
+            {signinTabSelected && (
+              <SocialmediaSigninButton socialmedia="facebook" />
+            )}
           </div>
         </form>
+      </div>
+      <div className="side-picture">
+        <img src={`${require("../../images/canada.jpg")}`} alt="" srcset=""/>
       </div>
     </div>
   );

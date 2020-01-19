@@ -6,7 +6,7 @@ import Skeleton from "../../../shared/components/Skeleton/Skeleton";
 
 import { SearchContext } from "../../../shared/context/SearchContext";
 
-const ProvincesList = ({ isProvinceSelected,isPanelToggled }) => {
+const ProvincesList = ({ isProvinceSelected, isPanelToggled }) => {
   useEffect(() => {
     setTimeout(() => {
       retrieveProvinces([
@@ -107,7 +107,7 @@ const ProvincesList = ({ isProvinceSelected,isPanelToggled }) => {
 
   const updateSelectedProvince = province => {
     setSelectedProvince(province);
-    isProvinceSelected(province)
+    isProvinceSelected(province);
   };
 
   const filtered = searchContext.searchedPlace;
@@ -116,8 +116,7 @@ const ProvincesList = ({ isProvinceSelected,isPanelToggled }) => {
     province.name.toLowerCase().includes(filtered)
   );
 
-
-  const hasProvinceBeenSelected = selectedProvince.length > 0
+  const hasProvinceBeenSelected = selectedProvince.length > 0;
 
   const renderProvinces = filteredProvinces.map(province => {
     return (
@@ -137,9 +136,15 @@ const ProvincesList = ({ isProvinceSelected,isPanelToggled }) => {
   if (hasProvinces) {
     return (
       <div className="provinces">
-        <div className={`provinces-content ${hasProvinceBeenSelected && isPanelToggled ? "shrink" : ""}`}>{renderProvinces}</div>
+        <div
+          className={`provinces-content ${
+            hasProvinceBeenSelected && isPanelToggled ? "shrink" : ""
+          }`}
+        >
+          {renderProvinces}
+        </div>
       </div>
-    )
+    );
   }
 
   const contentHasNotRendered = provinces.length === 0;
@@ -152,11 +157,7 @@ const ProvincesList = ({ isProvinceSelected,isPanelToggled }) => {
     );
   }
 
-  return (
-    <div className="not-found">
-      <EmptyState />
-    </div>
-  );
+  return <EmptyState />;
 };
 
 export default ProvincesList;
