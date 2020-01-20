@@ -10,21 +10,25 @@
         &.unactive {
             background: $linear-gradient-red;
             cursor: pointer;
-            
+            color: white;
+
             &:hover {
                 background: $linear-gradient-red-dark;
-                
+                color: white;
+
             }
         }
     }
-    
+
     .signup-container {
         &.unactive {
             cursor: pointer;
             background: $linear-gradient-red;
+            color: white;
 
             &:hover {
                 background: $linear-gradient-red-dark;
+                color: white;
 
             }
         }

@@ -53,7 +53,7 @@ const SigninSignup = ({ closeLogin, login }) => {
         </form>
       </div>
       <div className="side-picture">
-        <img src={`${require("../../images/canada.jpg")}`} alt="" srcset=""/>
+        <img src={`${require("../../images/canada.jpg")}`} alt="" />
       </div>
     </div>
   );
